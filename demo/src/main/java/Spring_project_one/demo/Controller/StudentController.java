@@ -54,4 +54,30 @@ public class StudentController {
         }
     }
 
+    @DeleteMapping("/deleteStudent")
+    public ResponseEntity deleteStudent(@RequestParam("studentId") int studentId)
+    {
+        try{
+            String result=studentService.deleteStudent(studentId);
+            return new ResponseEntity(result,HttpStatus.ACCEPTED);
+        }
+        catch(Exception e)
+        {
+            return new ResponseEntity(e.getMessage(),HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @PutMapping("/updateStudentAge")
+    public ResponseEntity updateStudentAge(@RequestParam("studentId")int studentId,@RequestParam("age") int age)throws Exception
+    {
+        try{
+            String result=studentService.updateStudentAge(studentId,age);
+            return new  ResponseEntity(result,HttpStatus.ACCEPTED);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity(e.getMessage(),HttpStatus.BAD_REQUEST);
+        }
+    }
+
 }

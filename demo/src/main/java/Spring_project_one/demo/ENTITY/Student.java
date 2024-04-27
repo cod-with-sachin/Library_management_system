@@ -28,4 +28,8 @@ public class Student {
     private String phoneNo;
 
 
+    @OneToOne(mappedBy = "student",cascade =CascadeType.ALL)
+    private libraryCard librarycard;
+
+
 }

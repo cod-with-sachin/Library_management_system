@@ -28,4 +28,8 @@ public class Book {
     private int totalNoPage;
     private Date published;
 
+//    @JoinColumn
+//    @ManyToOne
+//    private Author author;
+
 }
