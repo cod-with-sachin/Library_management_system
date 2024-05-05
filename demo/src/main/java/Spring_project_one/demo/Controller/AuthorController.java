@@ -1,5 +1,6 @@
 package Spring_project_one.demo.Controller;
 
+import Spring_project_one.demo.DataTransferObjects.DTOauthorUpdateRequest;
 import Spring_project_one.demo.ENTITY.Author;
 import Spring_project_one.demo.Service.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,13 @@ public class AuthorController {
     {
         String result=authorService.addAuthor(author);
         return new ResponseEntity(result, HttpStatus.CREATED);
+    }
+
+    @PutMapping("/updateAuthorAge")
+    public ResponseEntity updateAuthorName(@RequestBody DTOauthorUpdateRequest dtOauthorUpdateRequest)
+    {
+        String result=authorService.updateAuthorName(dtOauthorUpdateRequest);
+        return new ResponseEntity(result,HttpStatus.ACCEPTED);
     }
 
 }
